@@ -1,17 +1,17 @@
--- This script initializes your spatial database when it first boots up.
--- It enables PostGIS and creates your first table for the Cavite map data.
-
--- 1. Enable the PostGIS extension for spatial mapping
+-- 1. Enable PostGIS (Crucial for storing geographic coordinates)
 CREATE EXTENSION IF NOT EXISTS postgis;
 
--- 2. Create the table to hold Cafes, Scenic Spots, and Repair Shops
+-- 2. Create the table for your map data (Points of Interest)
 CREATE TABLE IF NOT EXISTS spatial_pois (
     id SERIAL PRIMARY KEY,
-    osm_id BIGINT UNIQUE,
+    osm_id BIGINT UNIQUE NOT NULL,
     name VARCHAR(255),
-    category VARCHAR(50), -- e.g., 'bicycle_shop', 'cafe', 'viewpoint'
-    geom GEOMETRY(Point, 4326) -- The spatial column that holds longitude/latitude
+    poi_type VARCHAR(100), -- e.g., 'bicycle_shop', 'cafe'
+    geom GEOMETRY(Point, 4326), -- 4326 is the standard GPS coordinate system
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Note: We will add more tables later for routes and elevation, 
--- but this is the perfect starting point for your POI ingestion script.
+-- 3. Create a spatial index so map searches are lightning-fast
+CREATE INDEX IF NOT EXISTS spatial_pois_geom_idx
+ON spatial_pois
+USING GIST (geom);
