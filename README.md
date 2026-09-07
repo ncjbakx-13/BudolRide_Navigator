@@ -55,6 +55,21 @@ budolride-navigator/
 └── README.md
 ```
 
+## Engineering Documentation
+
+These documents separate confirmed product decisions from planned work and should be
+read before adding application features:
+
+- [Architecture baseline](docs/ARCHITECTURE.md)
+- [Decisions and open questions](docs/DECISIONS.md)
+- [Engineering standards](docs/ENGINEERING_STANDARDS.md)
+- [Security baseline](docs/SECURITY.md)
+- [Data operations](docs/DATA_OPERATIONS.md)
+- [Delivery plan](docs/DELIVERY_PLAN.md)
+- [API contract baseline](docs/API_CONTRACT.md)
+- [Test strategy](docs/TEST_STRATEGY.md)
+- [Project glossary](docs/GLOSSARY.md)
+
 ## Getting Started
 
 > ⚠️ Detailed setup instructions will be added as each component is built.

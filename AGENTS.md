@@ -48,6 +48,24 @@ Explain non-obvious steps rather than assuming prior experience.
   (Overpass has rate limits).
 - Detour Radius input range: 0.5 km–5 km.
 
+## Engineering source of truth
+- Read `docs/DECISIONS.md` before relying on a design choice. Only entries marked
+  **Confirmed** are binding; a proposal is not an implemented feature.
+- Read `docs/ARCHITECTURE.md` before changing service boundaries or API/data flow,
+  `docs/SECURITY.md` before changing auth, secrets, or data access, and
+  `docs/DATA_OPERATIONS.md` before changing ETL or spatial schemas.
+- Apply the repository-local `budolride-navigator-engineering` skill at
+  `.codex/skills/budolride-navigator-engineering/SKILL.md` for BudolRide planning,
+  implementation, review, and operations work.
+- Do not claim authentication, routing safety, data freshness, database migrations,
+  or any security control is implemented without verified code and tests.
+- Route preview requires an authenticated user. Do not add anonymous route endpoints
+  unless `docs/DECISIONS.md` is explicitly changed.
+- Python 3.12 is the minimum supported runtime. The current backend configuration
+  still requires Python 3.14 and must be reconciled when implementation work begins.
+- If a credential is found in source, logs, fixtures, or documentation: stop using
+  it, remove it from the working copy, and flag rotation. Never repeat it in output.
+
 ## Out of Scope for v1 (do not build these unless explicitly asked)
 - Offline routing / offline maps
 - User-generated content (reviews, ratings, POI submissions)
