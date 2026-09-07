@@ -29,7 +29,8 @@
 
 **For the Software / Full-Stack Engineer — Aaron Angat (Backend API & Mobile UI):**
 
-* **Node.js with Express** (or Fastify) — handles REST API endpoints, runs spatial SQL queries against PostGIS, and serves JSON to the mobile app.  
+* **Python with FastAPI** — handles REST API endpoints, runs spatial SQL queries against PostGIS, and serves JSON to the mobile app. FastAPI also provides Pydantic validation and automatic OpenAPI/Swagger documentation.
+* **SQLAlchemy + GeoAlchemy2, with Alembic** — integrates the API with PostgreSQL/PostGIS and manages database schema migrations.
 * **React Native (with Expo)** — builds the mobile app for Android \+ iOS from one codebase, using JavaScript/TypeScript.  
 * **react-native-maps** — renders the interactive map, custom route polylines, and markers, using free map tiles (or Google Maps/Apple Maps native rendering depending on config) without needing a paid API tier for basic use.
 
@@ -65,9 +66,9 @@ The stack below prioritizes free tiers and beginner-friendly tools.
 
 * **Supabase Auth** — built into Supabase, supports email/password and social login (e.g., Google). No separate auth service needed since the database is already on Supabase.
 
-**Backend API Hosting (Node.js)**
+**Backend API Hosting (FastAPI)**
 
-* **Render** — free tier for Node.js web services. Free tier sleeps after inactivity and takes \~30–60 seconds to wake on the next request; acceptable for a personal/learning-stage project.
+* **Render** — hosts the FastAPI web service. The free tier sleeps after inactivity and takes \~30–60 seconds to wake on the next request; acceptable for a personal/learning-stage project.
 
 **Routing Engine (OSRM)**
 
@@ -81,7 +82,7 @@ The stack below prioritizes free tiers and beginner-friendly tools.
 ### **7\. Repository Structure**
 
 * **frontend/** — React Native (Expo) app — Aaron Angat  
-* **backend/** — Node.js \+ Express API — Aaron Angat  
+* **backend/** — Python \+ FastAPI API — Aaron Angat
 * **data-engineering/** — Python ETL scripts, PostGIS setup, OSRM config — Nathaniel (NCJ Bakx)  
 * **docs/** — full project proposal & planning docs
 
